@@ -1,11 +1,11 @@
 package application;
 
-
-
 import java.util.Date;
 
 import model.Department;
 import model.Seller;
+import model.dao.DaoFactory;
+import model.dao.SellerDao;
 
 public class main {
 
@@ -19,7 +19,7 @@ public class main {
 		
 		System.out.println(seller.toString());
 		
-		
+		SellerDao sellerDao = DaoFactory.createSellerDao();
 		
 		
 		
