@@ -21,7 +21,7 @@ public class main {
 		
 		SellerDao sellerDao = DaoFactory.createSellerDao();
 		
-		
+		System.out.println("hello");
 		
 	}
 }
