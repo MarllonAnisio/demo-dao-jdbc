@@ -42,8 +42,20 @@ public class main {
 		
 		Seller newSeller = new Seller(null,"Jhonnathen", "Jhonnathen@gmail.com",new Date(),7500.0,department);
 		System.out.println(newSeller);
-		sellerDao.insert(newSeller);
+		//sellerDao.insert(newSeller);
 		System.out.println("Inserted! new id = "+ newSeller.getId());
+		System.out.println("");
+		
+		System.out.println("==== TEST 5: Seller Update  ==== ");
+		seller = sellerDao.findById(12);
+		
+		seller.setName("gholl pist");
+		seller.setEmail("gollPist@gmail.com");
+		seller.setBirthDate(new Date());
+		
+		sellerDao.update(seller);
+		System.out.println(seller);
+		
 		System.out.println("");
 		
 		System.out.println("=============  END  ============== ");
