@@ -1,5 +1,6 @@
 package application;
 
+import java.util.Date;
 import java.util.List;
 
 import model.Department;
@@ -36,6 +37,15 @@ public class main {
 			System.out.println(obj1);
 		}
 		System.out.println("");
+		
+		System.out.println("==== TEST 4: Seller Insert  ==== ");
+		
+		Seller newSeller = new Seller(null,"Jhonnathen", "Jhonnathen@gmail.com",new Date(),7500.0,department);
+		System.out.println(newSeller);
+		sellerDao.insert(newSeller);
+		System.out.println("Inserted! new id = "+ newSeller.getId());
+		System.out.println("");
+		
 		System.out.println("=============  END  ============== ");
 	}
 }
