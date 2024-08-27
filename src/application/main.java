@@ -2,6 +2,7 @@ package application;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 import model.Department;
 import model.Seller;
@@ -11,7 +12,7 @@ import model.dao.SellerDao;
 public class main {
 
 	public static void main(String[] a) {
-		
+		Scanner scann = new Scanner(System.in);
 		
 		
 		Department obj = new Department(1, "Books");
@@ -53,9 +54,16 @@ public class main {
 		seller.setEmail("gollPist@gmail.com");
 		seller.setBirthDate(new Date());
 		
-		sellerDao.update(seller);
-		System.out.println(seller);
+		//sellerDao.update(seller);
+		System.out.println("Update completed");
 		
+		System.out.println("");
+		
+		System.out.println("==== TEST 6: Seller Update  ==== ");
+		System.out.println("Enter id for delete test: ");
+		Integer id = scann.nextInt();
+		sellerDao.deleteById(id);
+		System.out.println("Deleted completed");
 		System.out.println("");
 		
 		System.out.println("=============  END  ============== ");
