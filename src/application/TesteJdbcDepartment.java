@@ -13,11 +13,15 @@ public class TesteJdbcDepartment {
 		Scanner scann = new Scanner(System.in);
 		System.out.println("==== TEST 1: Department insert  ==== ");
 		
-		Department dep = new Department(null, "Nome");
+		Department dep = new Department(7, "Recursos humanos");
 
 		DepartmentDao department = DaoFactory.createDepartmentDao();
-		department.insert(dep);
+		//department.insert(dep);
 		System.out.println(dep);
+		
+		System.out.println("==== TEST 2: Department update  ==== ");
+		department.update(dep);
+		System.out.println("UPDATE Completed!");
 		
 		System.out.println("==== ======== end ========  ==== ");
 	}
