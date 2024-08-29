@@ -70,7 +70,10 @@ public class SellerDaoJDBC implements SellerDao{
 			st.setInt(5, obj.getDepartment().getId());
 			st.setInt(6, obj.getId());
 			
-			st.executeUpdate();
+			int  rowsAffected = st.executeUpdate();
+			if(rowsAffected == 0) {
+				throw new DbException("Update Fail");
+			}
 			
 		}catch(SQLException e) {
 			throw new DbException(e.getMessage());

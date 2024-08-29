@@ -59,6 +59,11 @@ public class DepartmentDaoJDBC implements DepartmentDao{
 			st.setInt(2, obj.getId());
 			st.executeUpdate();
 			
+			int  rowsAffected = st.executeUpdate();
+			if(rowsAffected == 0) {
+				throw new DbException("Update Fail");
+			}
+			
 		}catch(SQLException e) {
 			throw new DbException(e.getMessage());
 		}finally {
@@ -69,7 +74,22 @@ public class DepartmentDaoJDBC implements DepartmentDao{
 
 	@Override
 	public void deleteById(Integer id) {
-		// TODO Auto-generated method stub
+		PreparedStatement st = null;
+		try {
+			st = conn.prepareStatement("DELETE FROM department\r\n"
+					+ "WHERE Id = ?");
+			
+			st.setInt(1, id);
+			int rows = st.executeUpdate();
+			if(rows == 0) {
+				throw new DbException("Delete Unsuccessful");
+			}
+			
+		}catch(SQLException e) {
+			throw new DbException(e.getMessage());
+		}finally {
+			DB.closeStatemant(st);
+		}
 		
 	}
 
@@ -83,6 +103,27 @@ public class DepartmentDaoJDBC implements DepartmentDao{
 	public List<Department> findAll() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void deleteByName(String nome) {
+		PreparedStatement st = null;
+		try {
+			st = conn.prepareStatement("DELETE FROM department\r\n"
+					+ "WHERE Name = ?");
+			
+			st.setString(1, nome);
+			int rows = st.executeUpdate();
+			if(rows == 0) {
+				throw new DbException("Delete Unsuccessful");
+			}
+			
+		}catch(SQLException e) {
+			throw new DbException(e.getMessage());
+		}finally {
+			DB.closeStatemant(st);
+		}
+		
 	}
 
 }
