@@ -25,17 +25,20 @@ public class TesteJdbcDepartment {
 		
 		System.out.println("==== TEST 3: Department Delete by Id  ==== ");
 		System.out.println("enter an id to delete");
-		department.deleteById(Integer.parseInt(scann.nextLine()));
+		//department.deleteById(Integer.parseInt(scann.nextLine()));
 		System.out.println("Delete completed!");
 		
 		
 		System.out.println("==== TEST 3.5: Department Delete by Name  ==== ");
 		System.out.println("enter an Name to delete");
-		department.deleteByName(scann.nextLine());
+		//department.deleteByName(scann.nextLine());
 		System.out.println("Delete completed!");
 		
 		
-		
+		System.out.println("==== TEST 4: find by id   ==== ");
+		System.out.println("enter an id to find");
+		System.out.println(department.findById(Integer.parseInt(scann.nextLine())));
+		System.out.println("find completed!");
 		
 		
 		
